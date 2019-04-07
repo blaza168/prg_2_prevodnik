@@ -5,23 +5,15 @@
     </div>
   </div>
 
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <form>
     <div class="row justify-content-sm-center">
       <div class="col-sm-12 col-md-6">
         <mat-form-field style="width: 100%; margin-top: 40px">
-          <input matInput formControlName="number" placeholder="Číslo v dvojkové soustavě">
-          <mat-error *ngIf="form.get('number').hasError('required')">
-            Toto pole je <b>povinné!</b>
-          </mat-error>
-          <mat-error *ngIf="!form.get('number').hasError('required') && form.get('number').hasError('pattern')">
+          <input matInput [formControl]="input" placeholder="Číslo v dvojkové soustavě">
+          <mat-error *ngIf="!input.hasError('required') && input.hasError('pattern')">
             Toto číslo není <b>dvojkové</b> soustavě!
           </mat-error>
         </mat-form-field>
-      </div>
-    </div>
-    <div class="row justify-content-sm-center">
-      <div class="col-sm-12 col-md-6" style="text-align: center">
-        <button mat-stroked-button color="primary" [disabled]="!form.valid">Převeď</button>
       </div>
     </div>
   </form>
