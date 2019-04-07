@@ -9,7 +9,7 @@
     <div class="col-sm-12 col-md-6">
       <mat-form-field style="width: 100%; margin-top: 40px">
         <input matInput [formControl]="input" placeholder="Číslo v dvojkové soustavě">
-        <mat-error *ngIf="!input.hasError('required') && input.hasError('pattern')">
+        <mat-error *ngIf="input.hasError('pattern')">
           Toto číslo není <b>dvojkové</b> soustavě!
         </mat-error>
       </mat-form-field>
