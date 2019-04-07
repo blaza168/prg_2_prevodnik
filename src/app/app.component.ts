@@ -33,7 +33,7 @@ export class AppComponent {
       )]);
     control.markAsTouched();
     control.valueChanges.subscribe((value: string) => {
-      if (this.input.valid) {
+      if (this.input.valid && value.length !== 0) {
         this.result = this.toBinary(value);
       }
     });
